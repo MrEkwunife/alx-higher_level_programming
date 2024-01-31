@@ -1,0 +1,21 @@
+
+Funtion is imported:
+    >>> text_indentation = __import__("5-text_indentation").text_indentation
+
+test valid arguments:
+    >>> text_indentation("hello mike. how are you? good")
+    hello mike.
+    <BLANKLINE>
+    how are you?
+    <BLANKLINE>
+    good
+
+test invalid arguments:
+    >>> text_indentation(2)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+test for None values
+    >>> text_indentation(None)
+    Traceback (most recent call last):
+    TypeError: text must be a string

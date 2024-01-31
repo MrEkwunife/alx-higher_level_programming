@@ -1,0 +1,23 @@
+
+Funtion is imported:
+    >>> say_my_name = __import__("3-say_my_name").say_my_name
+
+
+test valid arguments:
+    >>> say_my_name("mike")
+    My name is mike 
+    >>> say_my_name("mike", "kay")
+    My name is mike kay
+
+test invalid arguments:
+    >>> say_my_name(2)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+    >>> say_my_name("John", 7)
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+test for None values
+    >>> say_my_name(None)
+    Traceback (most recent call last):
+    TypeError: first name must be given
