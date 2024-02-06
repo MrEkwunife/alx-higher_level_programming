@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-
-"""MyInt class"""
+# 100-my_int.py
+"""Defines a class MyInt that inherits from int."""
 
 
 class MyInt(int):
