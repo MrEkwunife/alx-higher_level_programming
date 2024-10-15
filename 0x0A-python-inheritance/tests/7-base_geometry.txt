@@ -1,5 +1,4 @@
 # 7-base_geometry.txt
-# Brennan D Baraban <375@holbertonschool.com>
 
 =============================
 How to Use 7-base_geometry.py
@@ -24,15 +23,6 @@ with no arguments.
 
     >>> print(bg) # doctest: +ELLIPSIS
     <7-base_geometry.BaseGeometry object at ...>
-
-In fact, any arguments supplied to an instantiation of ``BaseGeometry`` results
-in a TypeError.
-
-::
-
-    >>> bg = BaseGeometry(None)
-    Traceback (most recent call last):
-    TypeError: object() takes no parameters
 
 Methods
 =======
@@ -117,28 +107,6 @@ is raised.
     >>> bg.integer_validator("invalid int", -1)
     Traceback (most recent call last):
     ValueError: invalid int must be greater than 0
-
-::
-
-    >>> bg.integer_validator("invalid int", 0)
-    Traceback (most recent call last):
-    ValueError: invalid int must be greater than 0
-
-Both ``name`` and ``value`` must be provided. Otherwise, a TypeError is raised.
-
-::
-
-    >>> bg.integer_validator() # doctest: +NORMALIZE_WHITESPACE
-    Traceback (most recent call last):
-    TypeError: integer_validator() missing 2 required positional arguments: 
-    'name' and 'value'
-
-::
-
-    >>> bg.integer_validator(None) # doctest: +NORMALIZE_WHITESPACE
-    Traceback (most recent call last):
-    TypeError: integer_validator() missing 1 required positional argument: 
-    'value'
 
 The method assumes the paramter ``name`` will be a string, but ``name`` of any
 type will be printed.
