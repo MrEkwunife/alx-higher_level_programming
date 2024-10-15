@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+# 0-lookup.py
+# Brennan D Baraban <375@holbertonschool.com>
 """Defines an object attribute lookup function."""
 
 
