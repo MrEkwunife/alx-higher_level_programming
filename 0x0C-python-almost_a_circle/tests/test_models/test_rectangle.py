@@ -133,3 +133,26 @@ class TestRectangleInstantiation(unittest.TestCase):
         self.assertEqual(rec2.y, 2)
         self.assertEqual(rec2.x, 4)
         self.assertEqual(rec3.y, 5)
+
+
+class TestRectangle_area(unittest.TestCase):
+    """Unittests for testing the area method of the rectangle class"""
+
+    def test_area_small(self):
+        r = Rectangle(2, 12, 0, 0, 0)
+        self.assertEqual(24, r.area())
+
+    def test_area_big(self):
+        r = Rectangle(999999999999999, 999999999999999999, 0, 0, 1)
+        self.assertEqual(999999999999998999000000000000001, r.area())
+
+    def test_area_changed_attributes(self):
+        r = Rectangle(8, 2)
+        r.width = 4
+        r.height = 2
+        self.assertEqual(8, r.area())
+
+    def area_one_arg(self):
+        r = Rectangle(2, 10, 1, 1, 1)
+        with self.assertRaises(TypeError):
+            r.area(1)
