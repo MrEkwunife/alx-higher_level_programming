@@ -6,6 +6,8 @@ of the models package"""
 from models.base import Base
 from models.rectangle import Rectangle
 import unittest
+from io import StringIO
+import sys
 
 
 class TestRectangleInstantiation(unittest.TestCase):
@@ -155,4 +157,19 @@ class TestRectangle_area(unittest.TestCase):
     def area_one_arg(self):
         r = Rectangle(2, 10, 1, 1, 1)
         with self.assertRaises(TypeError):
-            r.area(1)
+            r.r = Rectangle(999999999999999, 999999999999999999, 0, 0, 1)
+
+class TestRectangleDisplay:
+    def test_display(self):
+        rec = Rectangle(2, 3)
+
+        cap_output = StringIO()
+        sys.stdout = cap_output
+        rec.display()
+        sys.stdout = sys.__stdout__
+
+        exp_output = "##\n##\n##\n"
+        self.assertEqual(cap_output.getvalue(), exp_output)
+
+if __name__ == '__main__':
+    unittest.main()
