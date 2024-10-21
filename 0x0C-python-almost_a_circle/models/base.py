@@ -4,6 +4,7 @@ Module Contains the base class of future classess or objects
 
 More Docs...
 """
+import json
 
 
 class Base:
@@ -27,3 +28,8 @@ class Base:
         else:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
+
+    @staticmethod
+    def to_json_string(list_dictionaries):
+        """Returns a json string of a dict"""
+        return "[]" if not list_dictionaries else json.dumps(list_dictionaries)
