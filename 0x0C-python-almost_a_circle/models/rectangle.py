@@ -95,7 +95,34 @@ class Rectangle(Base):
 
     def display(self):
         """Displays the rectangle using #"""
-        for _ in range(self.height):
-            for _ in range(self.width):
-                print("#", end="")
+        # for _ in range(self.height):
+            # for _ in range(self.width):
+                # print("#", end="")
+            # print("")
+        if self.width == 0 or self.height == 0:
             print("")
+            return
+
+        [print("") for y in range(self.y)]
+        for h in range(self.height):
+            [print(" ", end="") for x in range(self.x)]
+            [print("#", end="") for w in range(self.width)]
+            print("")
+
+    def __str__(self):
+        """Prints rec in the format [Rectangle] (1) 2/3 - 4/5"""
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(
+                    self.id,
+                    self.x,
+                    self.y,
+                    self.width,
+                    self.height
+                )
+
+    def update(self, *args):
+        """Updates the attributes of the rectangle"""
+        if args:
+            attrs = ['id', 'width', 'height', 'x', 'y']
+            for i, value in enumerate(args):
+                if i < len(attrs):
+                    setattr(self, attrs[i], value)
