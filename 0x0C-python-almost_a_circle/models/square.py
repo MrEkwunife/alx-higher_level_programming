@@ -42,6 +42,15 @@ class Square(Rectangle):
                 if hasattr(self, key):
                     setattr(self, key, value)
 
+    def to_dictionary(self):
+        """Return a dictionary representation of the square"""
+        return {
+                "id": self.size,
+                "size": self.size,
+                "x": self.x,
+                "y": self.y
+                }
+
     def __str__(self):
         """Returns the string rep of the square"""
         return "[Square] ({}) {}/{} - {}".format(
