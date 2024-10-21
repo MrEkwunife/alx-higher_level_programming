@@ -43,13 +43,14 @@ class Square(Rectangle):
                     setattr(self, key, value)
 
     def to_dictionary(self):
-        """Return a dictionary representation of the square"""
+        """Return the dictionary representation of a Rectangle."""
         return {
-                "id": self.size,
-                "size": self.width,
-                "x": self.x,
-                "y": self.y
-                }
+            "id": self.id,
+            "width": self.width,
+            "height": self.height,
+            "x": self.x,
+            "y": self.y
+        }
 
     def __str__(self):
         """Returns the string rep of the square"""
