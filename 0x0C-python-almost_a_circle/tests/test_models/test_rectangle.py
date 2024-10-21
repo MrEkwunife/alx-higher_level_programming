@@ -159,7 +159,8 @@ class TestRectangle_area(unittest.TestCase):
         with self.assertRaises(TypeError):
             r.r = Rectangle(999999999999999, 999999999999999999, 0, 0, 1)
 
-class TestRectangleDisplay:
+
+class TestRectangleDisplay(unittest.TestCase):
     def test_display(self):
         rec = Rectangle(2, 3)
 
@@ -170,6 +171,24 @@ class TestRectangleDisplay:
 
         exp_output = "##\n##\n##\n"
         self.assertEqual(cap_output.getvalue(), exp_output)
+
+        rec2 = Rectangle(4, 2, 2, 2)
+        cap_output = StringIO()
+        sys.stdout = cap_output
+        rec2.display()
+        sys.stdout = sys.__stdout__
+
+        exp_output = "\n\n  ####\n  ####\n"
+        self.assertEqual(cap_output.getvalue(), exp_output)
+
+
+class TestStr(unittest.TestCase):
+    """Unittest to check if the __str__ prints out specified rect"""
+
+    def test_str(self):
+        rect = Rectangle(1, 2, 3, 4, 5)
+        self.assertEqual(str(rect), "[Rectangle] (5) 3/4 - 1/2")
+
 
 if __name__ == '__main__':
     unittest.main()
